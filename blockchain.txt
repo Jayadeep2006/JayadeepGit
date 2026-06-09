@@ -1,5 +1,6 @@
 This project uses a custom lightweight blockchain implementation rather than an existing blockchain platform like Ethereum or Bitcoin. Here are the key characteristics of our implementation:
-
+man
+good bad 
 Structure:
 Uses a simple chain of blocks where each block contains:
 Index: Sequential block number
