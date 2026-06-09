@@ -1,0 +1,48 @@
+This project uses a custom lightweight blockchain implementation rather than an existing blockchain platform like Ethereum or Bitcoin. Here are the key characteristics of our implementation:
+
+Structure:
+Uses a simple chain of blocks where each block contains:
+Index: Sequential block number
+Timestamp: ISO format timestamp
+Data: The actual payload (threat events, rules, etc.)
+Previous Hash: Link to the previous block
+Hash: Current block's hash
+Nonce: For future proof-of-work (currently unused)
+Storage:
+Hybrid storage model:
+In-memory chain for fast access
+MongoDB persistence for durability
+Can fallback to in-memory only if DB is unavailable
+Hashing:
+Uses SHA-256 for block hashing
+Hash calculation includes: index + timestamp + data + previous_hash + nonce
+Data is JSON serialized with timestamps in ISO format for consistency
+Features:
+Genesis block creation
+Chain validation (verifies hash linkage and block integrity)
+Support for threat events and firewall rules
+Basic statistics and recent block retrieval
+No mining/proof-of-work (simplified for our use case)
+The choice to use a custom implementation instead of an existing blockchain platform was made because:
+
+Simplicity: We only need basic immutable ledger functionality for threat events and rules
+Performance: No need for distributed consensus or mining
+Control: Direct integration with our firewall and MongoDB
+Lightweight: No external blockchain node or network dependencies
+This implementation focuses on:
+
+Maintaining an immutable audit trail of security events
+Ensuring data integrity through hash chaining
+Providing quick access to recent threat history
+Reliable local operation without network dependencies
+If you want to extend this to use an established blockchain platform, we could:
+
+Add Ethereum integration for public verification of critical threats
+Use Hyperledger Fabric for a more robust private chain
+Implement IPFS for distributed storage of threat details
+Would you like me to:
+
+Add proof-of-work mining to the current implementation
+Create an Ethereum bridge for critical threats
+Enhance the current implementation with more robust features
+Let me know what interests you and I can help implement it!
